@@ -14,51 +14,34 @@
 // Strings with one word do not need gaps ('somelongword\n').
  
 
-// const itemsLength = (arr=[])=>arr.join("")
-const LIPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac. Maecenas sit amet lacinia arcu, non dictum justo. Donec sed quam vel risus faucibus euismod. Suspendisse rhoncus rhoncus felis at fermentum. Donec lorem magna, ultricies a nunc sit amet, blandit fringilla nunc. In vestibulum velit ac felis rhoncus pellentesque. Mauris at tellus enim. Aliquam eleifend tempus dapibus. Pellentesque commodo, nisi sit amet hendrerit fringilla, ante odio porta lacus, ut elementum justo nulla et dolor.'
+const test = 'Lorem  ipsum  dolor  sit amet,\nconsectetur  adipiscing  elit.\nVestibulum    sagittis   dolor\nmauris,  at  elementum  ligula\ntempor  eget.  In quis rhoncus\nnunc,  at  aliquet orci. Fusce\nat   dolor   sit   amet  felis\nsuscipit   tristique.   Nam  a\nimperdiet   tellus.  Nulla  eu\nvestibulum    urna.    Vivamus\ntincidunt  suscipit  enim, nec\nultrices   nisi  volutpat  ac.\nMaecenas   sit   amet  lacinia\narcu,  non dictum justo. Donec\nsed  quam  vel  risus faucibus\neuismod.  Suspendisse  rhoncus\nrhoncus  felis  at  fermentum.\nDonec lorem magna, ultricies a\nnunc    sit    amet,   blandit\nfringilla  nunc. In vestibulum\nvelit    ac    felis   rhoncus\npellentesque. Mauris at tellus\nenim.  Aliquam eleifend tempus\ndapibus. Pellentesque commodo,\nnisi    sit   amet   hendrerit\nfringilla,   ante  odio  porta\nlacus,   ut   elementum  justo\nnulla et dolor.'
+const LIPSUM2= 'Lorem  ipsum  dolor  sit amet,\nconsectetur  adipiscing  elit.\nVestibulum    sagittis   dolor\nmauris,  at  elementum  ligula\ntempor  eget.  In quis rhoncus\nnunc,  at  aliquet orci. Fusce\nat   dolor   sit   amet  felis\nsuscipit   tristique.   Nam  a\nimperdiet   tellus.  Nulla  eu\nvestibulum    urna.    Vivamus\ntincidunt  suscipit  enim, nec\nultrices   nisi  volutpat  ac.\nMaecenas   sit   amet  lacinia\narcu,  non dictum justo. Donec\nsed  quam  vel  risus faucibus\neuismod.  Suspendisse  rhoncus\nrhoncus  felis  at  fermentum.\nDonec lorem magna, ultricies a\nnunc    sit    amet,   blandit\nfringilla  nunc. In vestibulum\nvelit    ac    felis   rhoncus\npellentesque. Mauris at tellus\nenim.  Aliquam eleifend tempus\ndapibus. Pellentesque commodo,\nnisi    sit   amet   hendrerit\nfringilla,   ante  odio  porta\nlacus,   ut   elementum  justo\nnulla         et        dolor.'
+// const LIPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac. Maecenas sit amet lacinia arcu, non dictum justo. Donec sed quam vel risus faucibus euismod. Suspendisse rhoncus rhoncus felis at fermentum. Donec lorem magna, ultricies a nunc sit amet, blandit fringilla nunc. In vestibulum velit ac felis rhoncus pellentesque. Mauris at tellus enim. Aliquam eleifend tempus dapibus. Pellentesque commodo, nisi sit amet hendrerit fringilla, ante odio porta lacus, ut elementum justo nulla et dolor.'
+const LIPSUM = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis dolor mauris, at elementum ligula tempor eget. In quis rhoncus nunc, at aliquet orci. Fusce at dolor sit amet felis suscipit tristique. Nam a imperdiet tellus. Nulla eu vestibulum urna. Vivamus tincidunt suscipit enim, nec ultrices nisi volutpat ac. Maecenas sit amet lacinia arcu, non dictum justo. Donec sed quam vel risus faucibus euismod. Suspendisse rhoncus rhoncus felis at fermentum. Donec lorem magna, ultricies a nunc sit amet, blandit fringilla nunc. In vestibulum velit ac felis rhoncus pellentesque. Mauris at tellus enim. Aliquam eleifend tempus dapibus. Pellentesque commodo, nisi sit amet hendrerit fringilla, ante odio porta lacus, ut elementum justo nulla et dolor.';
 function justify(text, width) {
     if(!text || !width) return text
     let regex = new RegExp(`[\\p{L}\\p{N}\\p{P}\\p{S}\\s]{1,${width}}(\\s|$)`,'ug');
-    // let regex = new RegExp(/[\p{L}\p{N}\p{P}\p{S}\s]{1,20}(\s|$)/,'ug');e
-    const result = String(text).match(regex)
-    const arr = text.split(/\s/g)
-    const arr2 = result.map(el=>(el.trim())).map((el,i)=>{
+    const filtered = String(text).match(regex)
+    const result = filtered.map(el=>(el.trim())).map((el,i,arr)=>{
+      if (i === (arr.length-1)) return el
       const currentLength = el.replaceAll(/\s/g,"").length
-      const words = el.split(/\s/g)
+      let words = el.split(/\s/g)
       const wordsCount = words.length===1?words.length+1:words.length
       const neededSpaceCount = width-currentLength
       const stableSpaceCount = Math.floor(neededSpaceCount / (wordsCount-1))
       let surplus = neededSpaceCount-(stableSpaceCount*(wordsCount-1))
-      // console.log(1,{
-      //   currentLength,
-      //   words,
-      //   wordsCount,
-      //   neededSpaceCount,
-      //   stableSpaceCount
-      // })
-      words.map((word)=>{
-        console.log('__________________',word.length);
-        console.log(surplus)
-        let space =""
+
+        words = words.map((word)=>{
         if (surplus > 0) {
           surplus--
-          space=" "
+          return word + " "
         }
-        console.log('__________________',word.length);
-        return word + space
+        return word
       })
-      // console.log(2,{
-      //   currentLength,
-      //   words,
-      //   wordsCount,
-      //   neededSpaceCount,
-      //   stableSpaceCount
-      // })
-
-      // console.log(neededSpaceCount,"-",(stableSpaceCount*(wordsCount-1)),'=',surplus,"%", el );
       return words.join(' '.repeat(stableSpaceCount))
     })
 
-    return arr2.join('\n')
+    return result.join('\n')
   }
-console.log(justify(LIPSUM, 30))
+console.log(justify(LIPSUM, 30)) //=== LIPSUM2 )
+// console.log(test )
