@@ -4,16 +4,20 @@ import React from "react";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 
-interface Values {
+interface UserData {
   name: string;
   email: string;
   phone: string;
 }
-interface IPhoneInput {
-  value: string;
-  country: object;
-  countries: object[];
-  hiddenAreaCodes: object[];
+interface RouteData {
+    route_id:number;
+    departure_id:number;
+    date:string;
+    count:number;
+}
+interface IFromData {
+  user:UserData;
+  route:RouteData;
 }
 
 const TEST_ROUTES = [
@@ -67,13 +71,21 @@ function OrderForm() {
     <div>
       <Formik
         initialValues={{
-          name: "",
+          user:{
+            name: "",
           email: "",
           phone: "",
+          },
+          route: {
+            route_id:0,
+            departure_id:0,
+            date:"",
+            count:0,
+          }
         }}
         onSubmit={(
-          values: Values,
-          { setSubmitting }: FormikHelpers<Values>
+          values: IFromData,
+          { setSubmitting }: FormikHelpers<IFromData>
         ) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
@@ -85,15 +97,20 @@ function OrderForm() {
           <Form className="w-dvw grid grid-cols-2 border border-red-200 py-10">
             <div className="flex flex-col gap-2 border border-green-900">
       <h1>Signup</h1>
+      <Field name="route.route_id" as="select">
+   <option value="0">Red</option>
+   <option value="1">Green</option>
+   <option value="2">Blue</option>
+ </Field>
             </div>
             <div className="flex flex-col gap-2 border border-green-900 p-20">
-                <label htmlFor="name">Ваше имя</label>
-                <Field id="name" name="name" placeholder="Иван" />
+                <label htmlFor="user.name">Ваше имя</label>
+                <Field id="user.name" name="user.name" placeholder="Иван" />
 
                 <PhoneInput
                 country={"ru"}
-                value={props.values.phone}
-                onChange={(phone) => props.setFieldValue("phone", phone)}
+                value={props.values.user.phone}
+                onChange={(phone) => props.setFieldValue("user.phone", phone)}
                 isValid={(value, country: object, ...other) => {
                     console.log(country);
                     if (
@@ -127,12 +144,12 @@ function OrderForm() {
                 }}
                 />
 
-                <label htmlFor="email">Почта (необязательно)</label>
+                <label htmlFor="user.email">Почта (необязательно)</label>
                 <Field
-                id="email"
-                name="email"
+                id="user.email"
+                name="user.email"
                 placeholder="name@mail.ru"
-                type="email"
+                type="user.email"
                 />
 
                 <button type="submit">Оставить заявку</button>
