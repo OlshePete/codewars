@@ -1,0 +1,9 @@
+.video {
+    min-width: min(60dvw, 1200px);
+    height: 60dvh;
+    outline: 1px solid;
+}
+.video > iframe {
+    width: 100%;
+    height: 100%;
+}

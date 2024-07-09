@@ -110,6 +110,7 @@ function OrderForm() {
                 <PhoneInput
                 country={"ru"}
                 value={props.values.user.phone}
+
                 onChange={(phone) => props.setFieldValue("user.phone", phone)}
                 isValid={(value, country: object, ...other) => {
                     console.log(country);
