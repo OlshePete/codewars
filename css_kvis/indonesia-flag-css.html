@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .indonesia {
+            width: 600px;
+            height: 400px;
+            border: 2px solid;
+            display: grid; /* grid variant*/
+            /* flex-direction: column; */ /* flex variant*/
+        }
+        .indonesia__group:first-child {
+            background-color: #f70000;
+        }
+        .indonesia__group:nth-child(2) {
+            background-color: #fff;
+        }
+        .indonesia > div {
+            /* flex: 1 0 auto; */ /* flex variant*/
+        }
+    </style>
+</head>
+<body>
+    <div class="indonesia">
+      <div class="indonesia__group"></div>
+      <div class="indonesia__group"></div>
+    </div>
+    <script>
+        var container = document.querySelector('div.container')
+        container.addEventListener('click',function(e){
+            console.log(window.getComputedStyle(e.target)['background-color'])
+            console.log(e.target.classList[0])
+        })
+    </script>
+</body>
+</html>

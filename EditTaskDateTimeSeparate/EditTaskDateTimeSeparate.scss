@@ -1,0 +1,44 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.Container {
+    @include display-flex(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    overflow: hidden;
+    & > :not(:last-child) {
+        margin-right: 8px;
+    }
+    & .UDSTitle {
+      min-width: 175px;
+      max-width: 175px;
+      margin-right: 8px;
+    }
+    .DateBox{
+        position: relative;
+        max-width: 125px!important;
+        .UDSDatePicker.medium {
+            max-height: 32px!important;
+            min-width: 100%!important;
+            max-width: 100%!important;
+        }
+        .error-box {
+            position: absolute;
+            outline: 1px solid yellow;
+        }
+    }
+    .TimeBox{
+        position: relative;
+        max-width: 65px!important;
+        .UDSInput.medium {
+            min-width: 100%!important;
+            max-width: 100%!important;
+        }
+        .error-box {
+            position: absolute;
+            outline: 1px solid yellow;
+        }
+    }
+    .UDSButton {
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,124 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.PickerContainer {
+  outline: 1px solid red;
+  display: flex;
+  min-width: 210px;
+  min-height: 253px;
+  max-width: 210px;
+  max-height: 253px;
+}
+.ActionButtons {
+  background-color: teal;
+  display: flex;
+  flex-direction: column;
+  min-width: 82px;
+  max-width: 82px;
+}
+.ActionButtons > button {
+  border-radius: 0;
+  padding: 0;
+}
+.rc-picker-time-panel {
+  min-width: 127px;
+  max-width: 127px;
+  height: 100%;
+}
+.rc-picker-time-panel-column {
+  scrollbar-width: thin!important;
+}
+.rc-picker-time-panel-cell {
+  min-width: calc(13px + 48px);
+  max-width: calc(13px + 48px);
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rc-picker-time-panel-cell-inner {
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 48px;
+  max-width: 48px;
+  padding:8px 0px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.rc-picker-time-panel-cell-inner:hover {
+  outline:1px solid red
+}
+.rc-picker-time-panel>.rc-picker-header {
+  display: none;
+}
+.rc-picker-content {
+  outline: 1px solid green;
+  min-height: 100%;
+}
+.rc-picker-time-panel-cell.rc-picker-time-panel-cell-selected {
+  background-color: transparent!important;
+}
+.rc-picker-time-panel-cell.rc-picker-time-panel-cell-selected > .rc-picker-time-panel-cell-inner {
+  color:white;
+  background-color: #007562!important;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width:auto;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
