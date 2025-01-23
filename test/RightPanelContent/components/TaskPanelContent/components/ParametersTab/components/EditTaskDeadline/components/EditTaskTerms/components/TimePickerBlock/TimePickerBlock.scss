@@ -1,0 +1,119 @@
+.GroupedTimePickerInput {
+  position: relative;
+  & .UDSInput.UDSTimePicker {
+    min-width: 96px !important;
+    max-width: 96px !important;
+    padding-right: 30px;
+  }
+  & > .only-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    & svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+  & > .only-icon:hover {
+    border: none;
+  }
+}
+.PickerContainerMenu {
+  min-height: 253px !important;
+  max-height: 253px !important;
+  width: 210px !important;
+  & > .UDSMenu_ListViewWrapper {
+    max-height: 100% !important;
+    & .UDSMenu_ListView {
+      overflow-x: hidden !important;
+      overflow-y: hidden !important;
+      padding: 0 !important;
+      min-height: 253px !important;
+      max-height: 253px !important;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 2em;
+    height: 2em;
+  }
+}
+.PickerContainer {
+  background: inherit;
+  display: flex;
+  min-width: 210px;
+  max-width: 210px;
+  min-height: 253px;
+  max-height: 253px;
+  overflow: hidden;
+  & > .LeftColumn {
+    display: flex;
+    flex-direction: column;
+    & > .rc-picker-panel {
+      flex-grow: 1;
+      border: none;
+      background: inherit;
+      & .rc-picker-time-panel-column {
+        padding: 0;
+      }
+    }
+  }
+}
+.ActionButtons {
+  background: inherit;
+  display: flex;
+  flex-direction: column;
+  min-width: 82px;
+  max-width: 82px;
+}
+.ActionButtons > button {
+  background: inherit;
+  border-radius: 0;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  min-width: 100% !important;
+  max-width: 100% !important;
+  &:hover {
+    border-left: none;
+    border-right: none;
+  }
+}
+.BottomButton > .UDSButton {
+  padding: 0 !important;
+}
+.rc-picker-time-panel {
+  min-width: 127px;
+  max-width: 127px;
+  height: 100%;
+}
+.rc-picker-content {
+  min-height: 100%;
+  max-height: 100%;
+  margin: 4px 12px;
+}
+.rc-picker-time-panel-column::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.rc-picker-time-panel-cell {
+  min-width: 48px;
+  max-width: 48px;
+  min-height: 32px;
+  max-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px !important;
+}
+.rc-picker-time-panel-cell-inner {
+  font-size: 13px;
+  font-weight: 700;
+}
+.rc-picker-time-panel > .rc-picker-header {
+  display: none;
+}
+.rc-picker-time-panel-cell.rc-picker-time-panel-cell-selected {
+  background-color: transparent !important;
+  background-color: #007562 !important;
+}

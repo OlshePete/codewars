@@ -1,0 +1,34 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.DateTimeBlock {
+  @include display-flex(flex);
+  @include flex-direction(row);
+  @include align-items(flex-start);
+  & .error-box {
+    display: none;
+  }
+  &.invalid {
+    margin-bottom: 16px;
+    position: relative;
+  }
+  &.invalid > .error-title,
+  &.invalid > .UDSTooltip_Wrapper > .error-title {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  & > .UDSDatePicker {
+    min-width: 130px;
+    max-width: 130px;
+    height: 32px;
+    margin-right: 8px;
+    & > .UDSInput.UDSDatePicker_Input.medium {
+      padding: 7px 26px 7px 8px;
+    }
+  }
+  & > .UDSTimePicker {
+    min-width: 50px;
+    max-width: 72px;
+    height: 32px;
+  }
+}

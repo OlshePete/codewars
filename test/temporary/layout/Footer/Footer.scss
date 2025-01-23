@@ -1,0 +1,16 @@
+@import '@uds/components/src/scss/flexbox';
+
+.Footer {
+  @include display-flex(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+  @include justify-content(flex-end);
+  box-sizing: border-box;
+  padding: 0 16px;
+  height: 48px;
+  min-height: 48px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: auto;
+  margin-bottom: 0;
+}

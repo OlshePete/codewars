@@ -1,0 +1,19 @@
+@import '~@uds/components/src/scss/flexbox';
+.count {
+  @include display-flex(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  min-height: 16px;
+  max-height: 16px;
+  width: max-content;
+  min-width: 16px;
+  padding: 0 4px;
+  margin-left: 4px;
+  border-radius: 8px;
+  & > span {
+    color: rgba(252, 252, 253, 0.92);
+    font-size: 11px;
+    line-height: 10px;
+    font-weight: 700;
+  }
+}

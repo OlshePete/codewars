@@ -1,0 +1,61 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.EditTaskDeadline {
+  > .UDSAccordionContent {
+    padding: 16px;
+  }
+
+  .Title {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .Buttons {
+    @include display-flex(flex);
+    @include flex-direction(row);
+    padding-bottom: 16px;
+  }
+
+  .OnlyEnd {
+    @include display-flex(flex);
+    @include flex-direction(row);
+    @include align-items(flex-start);
+    .Group {
+      @include display-flex(flex);
+      @include flex-direction(column);
+      @include align-items(flex-start);
+      margin-right: 12px;
+
+      &:last-child {
+        @include flex-grow(1);
+        margin-right: 0;
+      }
+
+      .Title {
+        max-width: 100%;
+        width: 100%;
+        margin-bottom: 5px;
+      }
+      .ToArchiveDelay {
+        min-width: 130px;
+        max-width: 100%;
+
+        .UDSInput {
+          min-width: auto;
+          max-width: auto;
+        }
+      }
+    }
+  }
+
+  .UDSDateTimePicker_Input {
+    // background-color: #ffffff;
+  }
+
+  .UDSDateTimePicker_Calendar {
+    .react-calendar {
+      background-color: #ffffff;
+    }
+  }
+}

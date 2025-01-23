@@ -1,0 +1,65 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.EditTaskTerms {
+  @include display-flex(flex);
+  @include flex-direction(column);
+  min-width: 100%;
+  width: 100%;
+
+  .Group {
+    .UDSDateTimePicker {
+      .UDSInput {
+        padding: 0 35px 0 12px;
+      }
+    }
+  }
+
+  .Group {
+    @include display-flex(flex);
+    @include flex-direction(column);
+    @include align-items(flex-start);
+    margin-bottom: 16px;
+    width: 100%;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .Title {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+
+  .PlusEnd {
+    display: block;
+    margin: 8px 0 0 0;
+  }
+
+  .ToArchiveDelay {
+    min-width: 130px;
+
+    .UDSInput {
+      min-width: auto;
+    }
+  }
+
+  .UDSDateTimePicker {
+    min-width: 184px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .UDSDateTimePicker_Input {
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .UDSDateTimePicker_Calendar {
+    .react-calendar {
+      background-color: #ffffff;
+    }
+  }
+}

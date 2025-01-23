@@ -1,0 +1,11 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.Members {
+  > .UDSAccordionContent {
+    padding: 16px;
+  }
+
+  .group {
+    height: 64px;
+  }
+}

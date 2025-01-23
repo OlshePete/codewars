@@ -1,0 +1,15 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.PanelContentLayout {
+  @include display-flex(flex);
+  @include flex-direction(column);
+  position: relative;
+  height: 100%;
+  overflow: overlay;
+
+  .UDSAccordion {
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
+}

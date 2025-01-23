@@ -1,0 +1,116 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.MessageContainer {
+  @include display-flex(flex);
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  min-height: fit-content;
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+  &:first-child {
+    margin-top: 12px;
+  }
+  .AuthorLogo {
+    @include display-flex(flex);
+    @include flex-direction(row);
+    @include justify-content(center);
+    @include align-items(center);
+    overflow: hidden;
+    border-radius: 100%;
+    text-transform: uppercase;
+    line-height: 16px;
+    color: #28282d;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 13px;
+    font-weight: 600;
+    margin: 8px 8px 8px 0;
+  }
+  .MessageContent {
+    @include display-flex(flex);
+    @include flex-direction(column);
+    @include calculation(
+      (
+        max-width: calc(100% - 48px),
+      )
+    );
+    border-radius: 16px;
+    padding: 8px 12px;
+    .MessageText {
+      font-family: 'Inter', 'Noto' !important;
+      word-wrap: break-word;
+      max-width: 100%;
+    }
+    .MessageHeader {
+      @include display-flex(flex);
+      @include flex-direction(row);
+      @include justify-content(space-between);
+      margin-bottom: 4px;
+      .time {
+        font-size: 12px;
+        margin-left: 16px;
+      }
+      .name {
+        font-size: 13px;
+        font-weight: 600;
+        padding: 0;
+      }
+      .hide {
+        opacity: 0;
+      }
+    }
+    .MessageFiles {
+      @include display-flex(flex);
+      @include flex-direction(column);
+      min-width: 100%;
+      margin-top: 6px;
+      & > .UDSTooltip_Wrapper {
+        min-width: 270px;
+        max-width: 270px !important;
+        margin-bottom: 4px;
+      }
+      & > .UDSTooltip_Wrapper > .SkifFile {
+        width: 100%;
+        height: 68px;
+        margin-right: 0px;
+        white-space: nowrap;
+        & > .UDSFile_File {
+          @include justify-content(space-between);
+        }
+        & > .UDSFile_File:hover > .UDSFile_Base {
+          @include calculation(
+            (
+              max-width: calc(100% - 52px),
+            )
+          );
+          & .UDSFile_Name {
+            @include calculation(
+              (
+                max-width: max(calc(100% - 18px), 140px),
+              )
+            );
+          }
+        }
+        & > .UDSFile_File > .UDSFile_Base {
+          & .UDSFile_Info {
+            @include calculation(
+              (
+                max-width: calc(100% - 50px),
+              )
+            );
+          }
+          & .UDSFile_Name {
+            @include calculation(
+              (
+                max-width: max(calc(100% - 18px), 200px),
+              )
+            );
+          }
+        }
+      }
+    }
+  }
+}

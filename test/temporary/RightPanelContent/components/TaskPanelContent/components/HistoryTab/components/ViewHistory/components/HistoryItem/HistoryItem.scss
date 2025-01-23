@@ -1,0 +1,40 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.HistoryItem {
+  cursor: default;
+  padding: 8px 16px;
+  @include display-flex(flex);
+  @include flex-direction(row);
+  @include justify-content(space-between);
+
+  color: rgba(40, 43, 45, 0.92);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+
+  &--link {
+    &:hover {
+      cursor: pointer;
+      .HistoryCell--link {
+        opacity: 1;
+      }
+    }
+  }
+
+  & .UDSTooltip_Wrapper,
+  & .HistoryCell.editor  {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+  }
+
+  .action {
+    @include display-flex(flex);
+    @include flex-direction(column);
+    white-space: pre-line;
+  }
+}

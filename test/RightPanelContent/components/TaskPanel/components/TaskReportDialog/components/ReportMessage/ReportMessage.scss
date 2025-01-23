@@ -1,0 +1,16 @@
+.ReportMessageAccordion {
+  border-left: none !important;
+  border-right: none !important;
+}
+.ReportMessageAccordionContent {
+  border-top: 1px solid #dedfe0;
+  max-height: 340px;
+  overflow-y: auto;
+}
+.ReportMessageAccordionContent {
+  & .UDSTextEditor > .UDSTextEditor__Editor {
+    padding: 16px;
+    border: none;
+    background: transparent;
+  }
+}

@@ -1,0 +1,25 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.TaskPanel {
+  @include display-flex(flex);
+  @include flex-direction(column);
+  @include flex-grow(1);
+  height: 100%;
+
+  .Tabs {
+    min-height: 32px;
+  }
+
+  .width-100 {
+    width: 100%;
+  }
+
+  .name {
+    padding: 16px;
+    font-size: 13px;
+  }
+
+  & .Header {
+    padding-right: 16px;
+  }
+}

@@ -1,0 +1,12 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.HistoryHeader {
+  @include display-flex(flex);
+  @include justify-content(space-between);
+
+  padding: 8px 16px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+}

@@ -1,0 +1,57 @@
+.CreateTag {
+  padding: 16px;
+  .marginBottom {
+    margin-bottom: 16px;
+  }
+
+  .title {
+    margin-bottom: 6px;
+  }
+
+  .color {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -4px;
+  }
+
+  .colorItem {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .chip {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.22px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 320px;
+  }
+
+  .buttons {
+    display: flex;
+    padding: 8px 0 0;
+  }
+
+  .button {
+    margin-right: 12px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

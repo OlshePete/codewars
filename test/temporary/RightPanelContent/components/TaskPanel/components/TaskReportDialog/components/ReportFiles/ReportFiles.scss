@@ -1,0 +1,79 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.ReportFilesAccordion {
+  border: none !important;
+  & .Header_Text {
+    display: flex;
+  }
+  & > .ReportFilesAccordionContent {
+    border-top: 1px solid #dedfe0;
+    padding: 16px;
+    @include display-flex(flex);
+    @include flex-direction(column);
+    @include align-items(flex-start);
+    @include justify-content(flex-start);
+    & > button:first-child {
+      margin-bottom: 16px;
+    }
+    &.hidden {
+      display: none;
+    }
+  }
+  & > .UDSAccordionHeader {
+    background-color: #ffffff;
+  }
+}
+.ReportFilesList {
+  @include display-flex(flex);
+  @include align-items(center);
+  @include justify-content(flex-start);
+  min-width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  & > .UDSTooltip_Wrapper {
+    min-width: 270px;
+    max-width: 270px !important;
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+  & > .UDSTooltip_Wrapper > .SkifFile {
+    max-width: 270px;
+    height: 68px;
+    margin-right: 0px;
+    white-space: nowrap;
+    & > .UDSFile_File {
+      @include justify-content(space-between);
+    }
+    & > .UDSFile_File:hover > .UDSFile_Base {
+      @include calculation(
+        (
+          max-width: calc(100% - 52px),
+        )
+      );
+      & .UDSFile_Name {
+        @include calculation(
+          (
+            max-width: max(calc(100% - 18px), 140px),
+          )
+        );
+      }
+    }
+    & > .UDSFile_File > .UDSFile_Base {
+      & .UDSFile_Info {
+        @include calculation(
+          (
+            max-width: calc(100% - 50px),
+          )
+        );
+      }
+      & .UDSFile_Name {
+        @include calculation(
+          (
+            max-width: max(calc(100% - 18px), 200px),
+          )
+        );
+      }
+    }
+  }
+}

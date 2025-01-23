@@ -1,0 +1,5 @@
+@import '~@uds/components/src/scss/flexbox';
+.label {
+  @include display-flex(flex);
+  @include flex-direction(row);
+}

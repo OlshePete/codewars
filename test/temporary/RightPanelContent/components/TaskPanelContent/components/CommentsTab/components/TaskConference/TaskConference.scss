@@ -1,0 +1,111 @@
+@import '~@uds/components/src/scss/flexbox';
+
+.TaskConference {
+  @include display-flex(flex);
+  @include flex-direction(column);
+  @include flex-grow(1);
+  overflow: hidden;
+  .Messages {
+    @include display-flex(flex);
+    @include flex-direction(column);
+    @include flex-grow(1);
+    padding: 0 16px 2px 13px;
+    overflow: auto;
+    & > .MessageDateGroup {
+      @include display-flex(flex);
+      @include align-items(center);
+      @include justify-content(center);
+      border-radius: 10px;
+      background: rgba(67, 123, 91, 0.4);
+      color: #fff;
+      min-height: 16px;
+      max-width: 146px;
+      margin: 0 auto 4px auto;
+      padding: 0 12px;
+      font-size: 11px;
+      width: fit-content;
+      &:first-child {
+        margin-top: 4px;
+      }
+    }
+  }
+  .InputBlock {
+    font-family: 'Inter', 'Noto' !important;
+    @include display-flex(flex);
+    @include flex-direction(row);
+    min-height: 32px;
+    max-height: 32px;
+    margin: 12px 0;
+    width: 100%;
+    & > * {
+      margin-right: 4px;
+    }
+    & > *:first-child {
+      margin-left: 4px;
+    }
+    & > .UDSInput.medium.MessageInput {
+      @include flex-grow(1);
+      max-width: none;
+      height: 32px;
+    }
+    & .UDSButton {
+      border: none;
+      background-color: transparent;
+      & svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  .FilesBlock {
+    @include display-flex(flex);
+    @include flex-direction(row);
+    max-width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 8px !important;
+    & > .UDSTooltip_Wrapper {
+      min-width: 270px;
+      max-width: 270px !important;
+      margin-right: 8px;
+    }
+    & > .UDSTooltip_Wrapper > .SkifFile {
+      width: 100%;
+      height: 68px;
+      margin-right: 0px;
+      white-space: nowrap;
+      & > .UDSFile_File {
+        @include justify-content(space-between);
+      }
+      & > .UDSFile_File:hover > .UDSFile_Base {
+        @include calculation(
+          (
+            max-width: calc(100% - 52px),
+          )
+        );
+        & .UDSFile_Info {
+        }
+      }
+      & > .UDSFile_File > .UDSFile_Base {
+        & .UDSFile_Info {
+          // outline: 1px solid red;
+          @include calculation(
+            (
+              max-width: calc(100% - 50px),
+            )
+          );
+        }
+        & .UDSFile_Name {
+          // outline: 1px solid blue;
+          @include calculation(
+            (
+              max-width: max(calc(100% - 18px), 200px),
+            )
+          );
+        }
+      }
+    }
+  }
+}

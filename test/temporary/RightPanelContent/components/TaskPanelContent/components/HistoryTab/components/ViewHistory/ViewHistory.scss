@@ -1,0 +1,30 @@
+.ViewHistory {
+  padding: 0 0 16px;
+
+  .HistoryCell {
+    margin-right: 16px;
+
+    &--link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+
+      color: rgba(40, 43, 45, 0.6);
+    }
+
+    &:nth-child(1) {
+      width: 22%;
+    }
+    &:nth-child(2) {
+      width: 30%;
+    }
+    &:nth-child(3) {
+      width: 48%;
+    }
+    &:last-child {
+      width: 16px;
+      margin-right: 0;
+    }
+  }
+}
